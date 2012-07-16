@@ -30,7 +30,8 @@ class Url {
 		'login',
 		'logout',
 		'profile',
-		'order'
+		'order',
+		'order_packages',
 	);
 
 	public static function prep(){
@@ -71,6 +72,10 @@ class Url {
 	
 	public static function order(){
 		return self::prep().inc.'index.php?act=order';
+	}
+	
+	public static function order_packages(){
+		return self::order().'&do=package_list';
 	}
 	
 	public static function order_add($order_package_id){
