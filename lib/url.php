@@ -33,6 +33,7 @@ class Url {
 		'order',
 		'order_packages',
 		'order_cart',
+		'client',
 	);
 
 	public static function prep(){
@@ -48,31 +49,31 @@ class Url {
 	}
 
 	public static function home(){
-		return self::prep().inc.'index.php';
+		return self::prep().inc;
 	}
 	
 	public static function register(){
-		return self::prep().inc.'index.php?act=register';
+		return self::prep().inc.'?act=register';
 	}
 	
 	public static function login(){
-		return self::prep().inc.'index.php?act=login';
+		return self::prep().inc.'?act=login';
 	}	
 	
 	public static function logout(){
-		return self::prep().inc.'index.php?logout=true';
+		return self::prep().inc.'?logout=true';
 	}
 
 	public static function page(){
-		return self::prep().inc.'index.php?act=pages&page=';
+		return self::prep().inc.'?act=pages&page=';
 	}
 
 	public static function profile(){
-		return self::prep().inc.'index.php?act=profile';
+		return self::prep().inc.'?act=profile';
 	}
 	
 	public static function order(){
-		return self::prep().inc.'index.php?act=order';
+		return self::prep().inc.'?act=order';
 	}
 	
 	public static function order_cart(){
@@ -91,6 +92,10 @@ class Url {
 		$url = self::order().'&do=customize&order_package_id='.$order_package_id;
 		if(!is_null($order_session_package_id)) return $url.'&order_session_package_id='.$order_session_package_id;
 		return $url;
+	}
+	
+	public static function client(){
+		return self::prep().inc.'client.php';
 	}
 	
 }
