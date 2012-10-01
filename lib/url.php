@@ -88,9 +88,9 @@ class Url {
 		return self::order().'&do=add&order_package_id='.$order_package_id;
 	}
 	
-	public static function order_customize($order_package_id,$order_session_package_id=null){
+	public static function order_customize($order_package_id,$order_detail_package_id=null){
 		$url = self::order().'&do=customize&order_package_id='.$order_package_id;
-		if(!is_null($order_session_package_id)) return $url.'&order_session_package_id='.$order_session_package_id;
+		if(!is_null($order_detail_package_id)) return $url.'&order_detail_package_id='.$order_detail_package_id;
 		return $url;
 	}
 	
