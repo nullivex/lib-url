@@ -30,9 +30,9 @@ class Url {
 		'login',
 		'logout',
 		'profile',
-		'order',
-		'order_packages',
-		'order_cart',
+		'orders',
+		'orders_packages',
+		'orders_cart',
 		'client',
 	);
 
@@ -72,24 +72,24 @@ class Url {
 		return self::prep().inc.'?act=profile';
 	}
 	
-	public static function order(){
+	public static function orders(){
 		return self::prep().inc.'?act=order';
 	}
 	
-	public static function order_cart(){
-		return self::order().'&do=cart';
+	public static function orders_cart(){
+		return self::orders().'&do=cart';
 	}
 	
-	public static function order_packages(){
-		return self::order().'&do=package_list';
+	public static function orders_packages(){
+		return self::orders().'&do=package_list';
 	}
 	
-	public static function order_add($order_package_id){
-		return self::order().'&do=add&order_package_id='.$order_package_id;
+	public static function orders_add($order_package_id){
+		return self::orders().'&do=add&order_package_id='.$order_package_id;
 	}
 	
-	public static function order_customize($order_package_id,$order_detail_package_id=null){
-		$url = self::order().'&do=customize&order_package_id='.$order_package_id;
+	public static function orders_customize($order_package_id,$order_detail_package_id=null){
+		$url = self::orders().'&do=customize&order_package_id='.$order_package_id;
 		if(!is_null($order_detail_package_id)) return $url.'&order_detail_package_id='.$order_detail_package_id;
 		return $url;
 	}
