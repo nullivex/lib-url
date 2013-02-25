@@ -13,7 +13,7 @@ class Url {
 	
 	public static function _all(){
 		$urls = array();
-		foreach(self::$urls as $func) $urls['url_'.$func] = self::$func();
+		foreach(self::$urls as $func) $urls[$func] = self::$func();
 		return $urls;
 	}
 	
