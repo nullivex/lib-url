@@ -6,7 +6,7 @@ URL building library that allows dynamic registration at runtime.
 Usage
 ----
 ```php
-ld('url');
+use \LSS\Url;
 
 //registration
 Url::_register('home',Url::_prep().'/index.php');
