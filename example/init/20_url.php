@@ -18,6 +18,6 @@
  *	GNU Lesser General Public License along with OpenLSS.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
-namespace LSS;
-ld('url');
+
+//from openlss/core-boot
 __init_load_files(ROOT_GROUP.'/url');
