@@ -20,13 +20,15 @@
  */
 namespace LSS;
 
+use \Exception;
+
 class Url {
 
 	public static $urls = array();
 	public static $def = array();
-	
+
 	const inc = '/';
-	
+
 	public static function _prep(){
 		return Config::get('url','url');
 	}
@@ -35,20 +37,20 @@ class Url {
 		if(!isset(self::$def[$func])) return false;
 		return true;
 	}
-	
+
 	public static function _all(){
 		$urls = array();
 		foreach(self::$urls as $func) $urls[$func] = self::$func();
 		return $urls;
 	}
-	
+
 	public static function _register($name,$url){
 		//save to definitons
 		self::$def[$name] = array('url'=>$url);
 		//make persistent if no params
 		if(strpos($url,'$') === false) self::$urls[] = $name;
 	}
-	
+
 	public static function __callStatic($func,$params=array()) {
 		//check if exists
 		if(!isset(self::$def[$func])) throw new Exception('URL function doesnt exist: '.$func);
@@ -59,5 +61,5 @@ class Url {
 		foreach($params as $key => $arg) $url = str_replace('$'.($key+1),$arg,$url);
 		return $url;
 	}
-	
+
 }
