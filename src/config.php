@@ -21,3 +21,6 @@
 
 $config['url']['url'] = '';
 $config['url']['uri'] = '';
+
+\LSS\Config::setDefaults($config);
+unset($config);
