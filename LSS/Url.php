@@ -58,7 +58,7 @@ class Url {
 		$url = self::$def[$func]['url'];
 		if(!is_array($params)) return $url;
 		//parse params and return
-		foreach($params as $key => $arg) $url = str_replace('$'.($key+1),$arg,$url);
+		foreach($params as $key => $arg) $url = str_replace('$'.($key+1),urlencode($arg),$url);
 		return $url;
 	}
 
